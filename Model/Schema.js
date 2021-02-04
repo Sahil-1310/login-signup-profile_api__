@@ -1,5 +1,5 @@
 let mongoose=require('mongoose');
-let schema=new mongoose.Schema({
+const signupmodel=new mongoose.Schema({
     firstname:{
         type:String,required:true
     },
@@ -10,13 +10,14 @@ let schema=new mongoose.Schema({
         type:String,required:true
     },
     phone_no:{
-        type:Number,required:true
+        type:String,required:true
     },
     email:{
         type:String,required:true
     }, 
     date:{
-        type:Date,default:Date.now
+        type:Date,default:new Date()
     } 
 });
-module.exports=mongoose.model("signup",schema);
+const signup = mongoose.model('signup', signupmodel)
+module.exports = signup

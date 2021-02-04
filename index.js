@@ -5,7 +5,7 @@ let app=express();
 
 app.use(express.json()) //it cannot read property that we send json data so we have tell express that we are sending json data
 
-mongoose.connect('mongodb+srv://sohal:sahil@cluster0-krkux.mongodb.net/Practice?retryWrites=true',{
+mongoose.connect('mongodb://localhost:27017/apptunix',{
     useNewUrlParser:true,useUnifiedTopology:true},
     ()=>{console.log("connected to mongodb")});
 
