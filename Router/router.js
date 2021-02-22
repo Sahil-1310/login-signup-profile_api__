@@ -61,7 +61,7 @@ router.post('/Login', async (req, res) => {
         if (validPassword) {
             const accesssToken = jwt.sign({ _id1: data._id }, process.env.ACCESS_TOKEN_SECRET);
             res.json({ accessToken: accesssToken });
-        } else if (!validPassword) {
+        } else  {
             return res.status(401).send({
                 status: 401,
                 message: "Invalid User"
@@ -88,6 +88,8 @@ function authentication(req, res, next) {
     const authHeader = req.headers.authorization;
     // console.log(req.headers);
     const token = authHeader && authHeader.split(' ')[1];
+    console.log(authHeader.split(' ')[1]);
+    // console.log(req.headers.authorization);
     if (token == null) return res.sendStatus(401);
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
